@@ -1,9 +1,15 @@
 .facebook-login-btn {
   display: inline-block;
-  padding: .25rem .5rem;
+  padding: .5rem .75rem;
   border-radius: .25rem;
+  background: hsl(220, 70%, 50%);
+  transition: .3s ease-in-out;
+  cursor: pointer;
+  color: #fff;
   border: none;
   outline: none;
-  background: #3b5998;
-  color: #fff;
+}
+
+.facebook-login-btn:hover {
+  background: hsl(220, 70%, 35%);
 }
