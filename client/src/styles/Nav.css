@@ -1,0 +1,20 @@
+.nav-link {
+  color: black !important;
+  text-decoration: none !important;
+  display: inline-block;
+  margin: .25rem .5rem;
+  padding: .325rem .75rem;
+  transition: .1s ease-in-out;
+  border-radius: .25rem;
+  border: 2px solid transparent;
+}
+
+.nav-link:hover {
+  background: hsla(0, 0%, 0%, 0.1);
+  border-bottom: 2px solid hsl(210, 70%, 50%);
+}
+
+.nav-link.active {
+  background: hsla(0, 0%, 0%, 0.1);
+  border-bottom: 2px solid hsl(210, 70%, 50%);
+}
