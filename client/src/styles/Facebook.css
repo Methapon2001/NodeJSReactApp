@@ -1,0 +1,9 @@
+.facebook-login-btn {
+  display: inline-block;
+  padding: .25rem .5rem;
+  border-radius: .25rem;
+  border: none;
+  outline: none;
+  background: #3b5998;
+  color: #fff;
+}
