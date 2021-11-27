@@ -1,0 +1,125 @@
+.container,
+.container-fluid {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 930px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1125px;
+  }
+}
+
+.app {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.app-title {
+  font-size: 1.5em;
+}
+
+.app-menu {
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  border-radius: .25rem;
+  background: hsla(0, 0%, 0%, 0.1);
+  border-bottom: 2px solid transparent;
+  transition: .3s ease-in-out all;
+  display: inline-block;
+  padding: .5rem .75rem;
+  text-decoration: none !important;
+  color: white !important;
+  margin: .25rem .5rem;
+  border-bottom: 2px solid hsla(0, 0%, 100%, 0.5);
+}
+
+.app-menu:hover, 
+.app-menu.active {
+  background: hsla(0, 0%, 0%, 0.15);
+  border-bottom: 2px solid hsl(210, 70%, 45%);
+}
+
+.app-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid hsla(0, 0%, 0%, 0.1);
+  border-radius: .25rem;
+  background: hsla(0, 0%, 0%, 0.1);
+  margin-bottom: 1rem;
+}
+
+.app-table th,
+.app-table td {
+  padding: .5rem .75rem;
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
+}
+
+.app-btn {
+  background: transparent;
+  border: none;
+  border-radius: .25rem;
+  transition: .3s ease-in-out all;
+  display: inline-block;
+  padding: .5rem .75rem;
+  text-decoration: none;
+  margin: .25rem .5rem;
+  cursor: pointer;
+  color: white;
+  background: hsl(210, 70%, 45%);
+}
+
+.app-btn:hover {
+  background: hsl(210, 70%, 40%);
+}
+
+.app-btn.app-btn-danger {
+  background: hsl(0, 70%, 50%);
+}
+
+.app-btn.app-btn-danger:hover {
+  background: hsl(0, 70%, 45%);
+}
+
+.app-input {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid hsla(0, 0%, 100%, 0.5);
+  padding: .5rem .75rem;
+  margin: .25rem .5rem;
+  color: white;
+  outline: none;
+  transition: .3s ease-in-out all;
+}
+
+.app-input:focus {
+  border-bottom: 2px solid hsl(210, 70%, 45%);
+}
