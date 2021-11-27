@@ -17,3 +17,6 @@ In `server` directory, run the following command.
 ```
 npm run start
 ```
+
+# Note
+This repo is created for study purpose, it is not secure and not ready for production.
