@@ -34,7 +34,7 @@ export default class App extends React.Component {
     localStorage.setItem('picture', response.picture.data.url);
   }
 
-  getLocalStorageLogin() {
+  getLocalStorageLogin = () => {
     if (localStorage.getItem('isLoggedIn') === 'true') {
       this.setState({
         isLoggedIn: true,
@@ -44,6 +44,22 @@ export default class App extends React.Component {
         picture: localStorage.getItem('picture')
       });
     }
+  }
+
+  logout = () => {
+    this.setState({
+      isLoggedIn: false,
+      userID: '',
+      name: '',
+      email: '',
+      picture: ''
+    });
+
+    localStorage.setItem('isLoggedIn', false);
+    localStorage.setItem('userID', '');
+    localStorage.setItem('name', '');
+    localStorage.setItem('email', '');
+    localStorage.setItem('picture', '');
   }
 
   renderLogin = () => {
@@ -66,7 +82,8 @@ export default class App extends React.Component {
         <div className="container" style={{ textAlign: 'center' }}>
           <h1 className="app-title">Welcome to React</h1>
           <img src={this.state.picture} alt={this.state.name} style={{ borderRadius: '50%', border: '2px solid #000' }} />
-          <p>Now logged in as {this.state.name}</p>
+          <p>Now logged in as {this.state.name}, or <a href="javascript:void(0);" onClick={this.logout}>Logout.</a></p>
+          
 
           <nav>
             <NavLink to="/" className="app-menu">Show Data</NavLink>
