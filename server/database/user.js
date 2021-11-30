@@ -1,9 +1,9 @@
 const connection = require('./connection');
 
 module.exports.create = async (request, response) => {
-  const { id, name } = request.body;
-  await connection.query('INSERT INTO users (id, username) VALUES (?, ?)', [id, name]);
-  return response.json({ id, name });
+  const { id, username } = request.body;
+  await connection.query('INSERT INTO users (id, username) VALUES (?, ?)', [id, username]);
+  return response.json({ id, username });
 }
 
 module.exports.get = async (request, response) => {
@@ -20,7 +20,7 @@ module.exports.delete = async (request, response) => {
 
 module.exports.update = async (request, response) => {
   const id = request.params.id;
-  const name = request.body.username;
-  await connection.query('UPDATE users SET username = ? WHERE id = ?', [name, id]);
-  return response.json({ id, name });
+  const username = request.body.username;
+  await connection.query('UPDATE users SET username = ? WHERE id = ?', [username, id]);
+  return response.json({ id, username });
 }
