@@ -40,6 +40,7 @@ class AddData extends React.Component {
   }
 }
 
+// HOC to navigate to the home page
 export default function WithRouter(props) {
   const navigate = useNavigate();
   return (<AddData {...props} navigate={navigate}/>);
