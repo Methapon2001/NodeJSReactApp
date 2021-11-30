@@ -26,6 +26,24 @@ export default class App extends React.Component {
       email: response.email,
       picture: response.picture.data.url
     });
+
+    localStorage.setItem('isLoggedIn', true);
+    localStorage.setItem('userID', response.userID);
+    localStorage.setItem('name', response.name);
+    localStorage.setItem('email', response.email);
+    localStorage.setItem('picture', response.picture.data.url);
+  }
+
+  getLocalStorageLogin() {
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+      this.setState({
+        isLoggedIn: true,
+        userID: localStorage.getItem('userID'),
+        name: localStorage.getItem('name'),
+        email: localStorage.getItem('email'),
+        picture: localStorage.getItem('picture')
+      });
+    }
   }
 
   renderLogin = () => {
@@ -67,6 +85,11 @@ export default class App extends React.Component {
   }
 
   render() {
+
+    if (this.state.isLoggedIn === false) {
+      this.getLocalStorageLogin();
+    }
+
     return (<div>{this.state.isLoggedIn ? this.renderMain() : this.renderLogin()}</div>);
   }
 }

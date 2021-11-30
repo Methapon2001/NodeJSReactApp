@@ -83,8 +83,9 @@ export default class ViewData extends React.Component {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Name</th>
-              <th>Register At</th>
+              <th>Username</th>
+              <th>Created At</th>
+              <th>Updated At</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -93,8 +94,9 @@ export default class ViewData extends React.Component {
               return (
                 <tr key={index}>
                   <td>{item.id}</td>
-                  <td>{item.name}</td>
-                  <td>{item.registerAt}</td>
+                  <td>{item.username}</td>
+                  <td>{item.createdAt}</td>
+                  <td>{item.updatedAt}</td>
                   <td>
                     <button className="app-btn" onClick={() => this.editData(item)}>Edit</button>
                     <button className="app-btn app-btn-danger" onClick={() => this.deleteData(item.id)}>Delete</button>
