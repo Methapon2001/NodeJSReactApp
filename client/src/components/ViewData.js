@@ -8,7 +8,7 @@ export default class ViewData extends React.Component {
     this.state = {
       data: [],
       id: '',
-      name: '',
+      username: '',
       vsible: false
     }
 
@@ -54,7 +54,7 @@ export default class ViewData extends React.Component {
   editData = (item) => {
     this.setState({
       id: item.id,
-      name: item.name,
+      username: item.username,
     });
     this.openModal();
   }
@@ -68,7 +68,7 @@ export default class ViewData extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const data = {
-      name: this.state.name,
+      username: this.state.username,
     }
     axios.put(`https://localhost:3000/api/data/${this.state.id}`, data).then(res => {
       this.getData();
@@ -110,7 +110,7 @@ export default class ViewData extends React.Component {
           <div className="app-modal" style={{ background: '#282c34', width: '500px', height: '300px', borderRadius: '.25rem', padding: '1rem' }}>
             <form onSubmit={this.handleSubmit}>
             <input class="app-input" type="number" name="id" placeholder="ID" value={this.state.id} onChange={this.handleChange} style={{ textAlign: 'center', width: '120px' }} />
-            <input class="app-input" type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleChange} />
+            <input class="app-input" type="text" name="username" placeholder="Name" value={this.state.username} onChange={this.handleChange} />
             <button className="app-btn" type="submit">Submit</button>
           </form>
           </div>

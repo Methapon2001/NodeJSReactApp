@@ -20,7 +20,7 @@ module.exports.delete = async (request, response) => {
 
 module.exports.update = async (request, response) => {
   const id = request.params.id;
-  const name = request.body.name;
+  const name = request.body.username;
   await connection.query('UPDATE users SET username = ? WHERE id = ?', [name, id]);
   return response.json({ id, name });
 }
