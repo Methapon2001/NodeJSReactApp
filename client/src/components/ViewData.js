@@ -45,7 +45,7 @@ export default class ViewData extends React.Component {
     });
   }
 
-  closeModal= () => {
+  closeModal = () => {
     this.setState({
       visible : false
     });
