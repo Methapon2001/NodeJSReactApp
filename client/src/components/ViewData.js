@@ -21,7 +21,7 @@ export default class ViewData extends React.Component {
   }
 
   getData = () => {
-    axios.get('https://localhost:3000/api/data').then(res => {
+    axios.get('/api/data').then(res => {
       this.setState({
         data: res.data
       })
@@ -32,7 +32,7 @@ export default class ViewData extends React.Component {
     const confirm = window.confirm('Are you sure?');
 
     if (confirm) {
-      axios.delete(`https://localhost:3000/api/data/${id}`).then(res => {
+      axios.delete(`/api/data/${id}`).then(res => {
         this.getData();
       })
     } else {
@@ -70,7 +70,7 @@ export default class ViewData extends React.Component {
     const data = {
       username: this.state.username,
     }
-    axios.put(`https://localhost:3000/api/data/${this.state.id}`, data).then(res => {
+    axios.put(`/api/data/${this.state.id}`, data).then(res => {
       this.getData();
     });
     this.closeModal();
