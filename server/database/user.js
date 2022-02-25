@@ -1,9 +1,9 @@
 const connection = require('./connection');
 
 module.exports.create = async (request, response) => {
-  const { id, username, createdByEmail } = request.body;
-  await connection.query('INSERT INTO users (id, username, createdBy) VALUES (?, ?, ?)', [id, username, createdByEmail]);
-  return response.json({ id, username, createdByEmail });
+  const { id, city, username, createdByEmail } = request.body;
+  await connection.query('INSERT INTO users (id, cityId, username, createdBy) VALUES (?, ?, ?, ?)', [id, city, username, createdByEmail]);
+  return response.json({ id, city, username, createdByEmail });
 }
 
 module.exports.get = async (request, response) => {

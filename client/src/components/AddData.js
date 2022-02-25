@@ -7,8 +7,8 @@ class AddData extends React.Component {
     super(props);
     this.state = {
       id: '',
-      username: '',
       city: '',
+      username: '',
       createdByEmail: localStorage.getItem('email'),
       data: [],
     }
@@ -24,8 +24,8 @@ class AddData extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { id, username, createdByEmail } = this.state;
-    axios.post('/api/data', { id, username, createdByEmail }).then(res => {
+    const { id, city, username, createdByEmail } = this.state;
+    axios.post('/api/data', { id, city, username, createdByEmail }).then(res => {
       this.props.navigate('/');
     }).catch(err => console.log(err));
   }

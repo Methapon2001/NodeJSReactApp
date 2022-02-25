@@ -84,6 +84,7 @@ export default class ViewData extends React.Component {
             <tr>
               <th>ID</th>
               <th>Username</th>
+              <th>City</th>
               <th>Created At</th>
               <th>Updated At</th>
               <th>Created By</th>
@@ -91,11 +92,12 @@ export default class ViewData extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {!this.state.data.length ? <tr><td colSpan="6">No Data</td></tr> : this.state.data.map((item, index) => {
+            {!this.state.data.length ? <tr><td colSpan="7">No Data</td></tr> : this.state.data.map((item, index) => {
               return (
                 <tr key={index}>
                   <td>{item.id}</td>
                   <td>{item.username}</td>
+                  <td>{item.cityId}</td>
                   <td>{item.createdAt}</td>
                   <td>{item.updatedAt}</td>
                   <td>{item.createdBy}</td>
