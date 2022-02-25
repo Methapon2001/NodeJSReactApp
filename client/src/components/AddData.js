@@ -8,7 +8,9 @@ class AddData extends React.Component {
     this.state = {
       id: '',
       username: '',
-      createdByEmail: localStorage.getItem('email')
+      city: '',
+      createdByEmail: localStorage.getItem('email'),
+      data: [],
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,12 +30,30 @@ class AddData extends React.Component {
     }).catch(err => console.log(err));
   }
 
+  componentDidMount = () => {
+    this.getData();
+  }
+
+  getData = () => {
+    axios.get('/api/cities').then(res => {
+      this.setState({
+        data: res.data
+      })
+    })
+  }
+
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input class="app-input" type="number" name="id" placeholder="ID" value={this.state.id} onChange={this.handleChange} style={{ textAlign: 'center', width: '120px' }} />
-          <input class="app-input" type="text" name="username" placeholder="Name" value={this.state.username} onChange={this.handleChange} />
+          <input class="app-input" type="number" name="id" placeholder="ID" value={this.state.id} onChange={this.handleChange} style={{ textAlign: 'center', width: '120px' }} required/>
+          <input class="app-input" type="text" name="username" placeholder="Name" value={this.state.username} onChange={this.handleChange} required/>
+          <select class="app-input" name="city" value={this.state.city} onChange={this.handleChange} required>
+            <option value="" >Select Province (City)</option>
+            {this.state.data.map(item => {
+              return <option value={item.id}>{item.name}</option>
+            })}
+          </select>
           <button className="app-btn" type="submit">Submit</button>
         </form>
       </div>
