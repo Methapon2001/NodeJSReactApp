@@ -7,6 +7,6 @@ module.exports.get = async (request, response) => {
         return response.json(city[0]);
     } else {
         const cities = await connection.query('SELECT * FROM cities');
+        return response.json(cities);
     }
-    return response.json(cities);
 }
