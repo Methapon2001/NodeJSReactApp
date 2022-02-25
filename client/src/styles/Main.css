@@ -123,3 +123,7 @@
 .app-input:focus {
   border-bottom: 2px solid hsl(210, 70%, 45%);
 }
+
+.app-input option {
+  color: black;
+}
