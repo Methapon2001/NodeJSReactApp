@@ -7,9 +7,10 @@ export default class ViewData extends React.Component {
     super(props);
     this.state = {
       data: [],
+      dataCities: [],
       id: '',
       username: '',
-      vsible: false
+      visible: false
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -24,6 +25,12 @@ export default class ViewData extends React.Component {
     axios.get('/api/data').then(res => {
       this.setState({
         data: res.data
+      })
+    })
+
+    axios.get('/api/cities').then(res => {
+      this.setState({
+        dataCities: res.data
       })
     })
   }
@@ -54,6 +61,7 @@ export default class ViewData extends React.Component {
   editData = (item) => {
     this.setState({
       id: item.id,
+      city: item.cityId,
       username: item.username,
     });
     this.openModal();
@@ -68,6 +76,7 @@ export default class ViewData extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const data = {
+      city: this.state.city,
       username: this.state.username,
     }
     axios.put(`/api/data/${this.state.id}`, data).then(res => {
@@ -110,11 +119,17 @@ export default class ViewData extends React.Component {
             })}
           </tbody>
         </table>
-        <Modal visible={this.state.visible} width="500" height="300" effect="fadeInUp" onClickAway={() => this.closeModal()}>
-          <div className="app-modal" style={{ background: '#282c34', width: '500px', height: '300px', borderRadius: '.25rem', padding: '1rem' }}>
+        <Modal visible={this.state.visible} width="700" height="150" effect="fadeInUp" onClickAway={() => this.closeModal()}>
+          <div className="app-modal" style={{ background: '#282c34', width: '700px', height: '150px', borderRadius: '.25rem', padding: '1rem' }}>
             <form onSubmit={this.handleSubmit}>
             <input class="app-input" type="number" name="id" placeholder="ID" value={this.state.id} onChange={this.handleChange} style={{ textAlign: 'center', width: '120px' }} />
             <input class="app-input" type="text" name="username" placeholder="Name" value={this.state.username} onChange={this.handleChange} />
+            <select class="app-input" name="city" value={this.state.city} onChange={this.handleChange} required>
+              <option value="" >Select Province (City)</option>
+              {this.state.dataCities.map(item => {
+                return <option value={item.id}>{item.name}</option>
+              })}
+            </select>
             <button className="app-btn" type="submit">Submit</button>
           </form>
           </div>

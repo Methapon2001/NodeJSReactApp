@@ -7,7 +7,7 @@ module.exports.create = async (request, response) => {
 }
 
 module.exports.get = async (request, response) => {
-  const users = await connection.query('SELECT users.id, cityId, username, createdAt, updatedAt, createdBy, cities.name AS city FROM users LEFT JOIN cities ON users.cityId = cities.id');
+  const users = await connection.query('SELECT users.*, cities.name AS city FROM users LEFT JOIN cities ON users.cityId = cities.id');
   console.log(users);
   return response.json(users);
 }
@@ -20,8 +20,8 @@ module.exports.delete = async (request, response) => {
 
 module.exports.update = async (request, response) => {
   const id = request.params.id;
-  const username = request.body.username;
-  await connection.query('UPDATE users SET username = ? WHERE id = ?', [username, id]);
+  const { city, username } = request.body;
+  await connection.query('UPDATE users SET cityId = ?, username = ? WHERE id = ?', [city, username, id]);
   return response.json({ id, username });
 }
 
