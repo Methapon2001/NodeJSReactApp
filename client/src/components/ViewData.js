@@ -97,7 +97,7 @@ export default class ViewData extends React.Component {
                 <tr key={index}>
                   <td>{item.id}</td>
                   <td>{item.username}</td>
-                  <td>{item.cityId}</td>
+                  <td>{item.city}</td>
                   <td>{item.createdAt}</td>
                   <td>{item.updatedAt}</td>
                   <td>{item.createdBy}</td>

@@ -7,7 +7,7 @@ module.exports.create = async (request, response) => {
 }
 
 module.exports.get = async (request, response) => {
-  const users = await connection.query('SELECT * FROM users');
+  const users = await connection.query('SELECT users.id, cityId, username, createdAt, updatedAt, createdBy, cities.name AS city FROM users LEFT JOIN cities ON users.cityId = cities.id');
   console.log(users);
   return response.json(users);
 }
