@@ -18,6 +18,7 @@ app.post('/api/data', user.create);
 app.put('/api/data/:id', user.update);
 app.delete('/api/data/:id', user.delete);
 app.get('/api/cities', city.get);
+app.get('/api/statistics', user.statistics);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));

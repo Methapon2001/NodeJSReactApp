@@ -24,3 +24,17 @@ module.exports.update = async (request, response) => {
   await connection.query('UPDATE users SET username = ? WHERE id = ?', [username, id]);
   return response.json({ id, username });
 }
+
+module.exports.statistics = async (request, response) => {
+  const users = await connection.query('SELECT COUNT(*) AS total FROM users');
+  const usersByCity = await connection.query('SELECT cities.name AS city, COUNT(*) AS total FROM users LEFT JOIN cities ON users.cityId = cities.id GROUP BY cityId');
+  const maxUsers = await connection.query('SELECT cities.name AS city, COUNT(*) AS total FROM users LEFT JOIN cities ON users.cityId = cities.id GROUP BY cityId ORDER BY total DESC LIMIT 1');
+  const minUsers = await connection.query('SELECT cities.name AS city, COUNT(*) AS total FROM users LEFT JOIN cities ON users.cityId = cities.id GROUP BY cityId ORDER BY total ASC LIMIT 1');
+  const data = {
+    users: users[0].total,
+    usersByCity: usersByCity,
+    maxUsers: maxUsers[0],
+    minUsers: minUsers[0],
+  };
+  return response.json(data);
+}
