@@ -86,17 +86,19 @@ export default class ViewData extends React.Component {
               <th>Username</th>
               <th>Created At</th>
               <th>Updated At</th>
+              <th>Created By</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {!this.state.data.length ? <tr><td colSpan="4">No Data</td></tr> : this.state.data.map((item, index) => {
+            {!this.state.data.length ? <tr><td colSpan="6">No Data</td></tr> : this.state.data.map((item, index) => {
               return (
                 <tr key={index}>
                   <td>{item.id}</td>
                   <td>{item.username}</td>
                   <td>{item.createdAt}</td>
                   <td>{item.updatedAt}</td>
+                  <td>{item.createdBy}</td>
                   <td>
                     <button className="app-btn" onClick={() => this.editData(item)}>Edit</button>
                     <button className="app-btn app-btn-danger" onClick={() => this.deleteData(item.id)}>Delete</button>

@@ -8,6 +8,7 @@ class AddData extends React.Component {
     this.state = {
       id: '',
       username: '',
+      createdByEmail: localStorage.getItem('email')
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,8 +22,8 @@ class AddData extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { id, username } = this.state;
-    axios.post('/api/data', { id, username }).then(res => {
+    const { id, username, createdByEmail } = this.state;
+    axios.post('/api/data', { id, username, createdByEmail }).then(res => {
       this.props.navigate('/');
     }).catch(err => console.log(err));
   }
