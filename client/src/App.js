@@ -3,6 +3,7 @@ import { Routes, Route, NavLink } from "react-router-dom";
 import FacebookLogin from 'react-facebook-login';
 import ViewData from './components/ViewData';
 import AddData from './components/AddData';
+import Stats from "./components/Stats";
 import './styles/App.css';
 import './styles/Main.css';
 
@@ -86,7 +87,8 @@ export default class App extends React.Component {
           
 
           <nav>
-            <NavLink to="/" className="app-menu">Show Data</NavLink>
+            <NavLink to="/" className="app-menu">View</NavLink>
+            <NavLink to="/stats" className="app-menu">Statistics</NavLink>
             <NavLink to="/add" className="app-menu">Add Data</NavLink>
           </nav>
 
@@ -94,6 +96,7 @@ export default class App extends React.Component {
             
           <Routes>
             <Route path="/" element={<ViewData />} />
+            <Route path="/stats" element={<Stats />} />
             <Route path="/add" element={<AddData />} />
           </Routes>
         </div>
