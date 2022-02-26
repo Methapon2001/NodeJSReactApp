@@ -9,7 +9,7 @@ export default class ViewData extends React.Component {
       data: [],
       id: '',
       username: '',
-      vsible: false
+      visible: false
     }
 
     this.handleChange = this.handleChange.bind(this);
