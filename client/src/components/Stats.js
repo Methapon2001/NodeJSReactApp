@@ -35,30 +35,6 @@ export default class Stats extends React.Component {
   render() {
     return (
       <div>
-        
-        {console.log(this.state.data)}
-        <table class="app-table" width="100%">
-          <thead>
-            <tr>
-              <th colSpan="2">Statistics</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Total Users</td>
-              <td>{this.state.data.users}</td>
-            </tr>
-            <tr>
-              <td>Highest user city</td>
-              <td>{this.state.data.maxUsers.city} ({this.state.data.maxUsers.total})</td>
-            </tr>
-            <tr>
-              <td>Lowest user city</td>
-              <td>{this.state.data.minUsers.city} ({this.state.data.minUsers.total})</td>
-            </tr>
-          </tbody>
-        </table>
-
         <table class="app-table" width="100%">
           <thead>
             <tr>
@@ -75,6 +51,28 @@ export default class Stats extends React.Component {
                 </tr>
               )
             })}
+          </tbody>
+        </table>
+        
+        <table class="app-table" width="100%">
+          <thead>
+            <tr>
+              <th colSpan="2">Statistics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width="50%">Total Users</td>
+              <td width="50%">{this.state.data.users}</td>
+            </tr>
+            <tr>
+              <td>Highest user city</td>
+              <td>{this.state.data.maxUsers.city} ({this.state.data.maxUsers.total})</td>
+            </tr>
+            <tr>
+              <td>Lowest user city</td>
+              <td>{this.state.data.minUsers.city} ({this.state.data.minUsers.total})</td>
+            </tr>
           </tbody>
         </table>
       </div>
