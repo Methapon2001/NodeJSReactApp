@@ -19,4 +19,4 @@ npm run start
 ```
 
 # Note
-This repo is created for study purpose, it is not secure and not ready for production.
+This repo is created for study purpose which will be submit to professor, it is not secure and not ready for production.
